@@ -1,0 +1,82 @@
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Stack;
+
+/**
+ * @Title: Test.java
+ * @Description: 用于在LeetCode做练习
+ * @author liar
+ */
+
+
+public class Test {
+
+	/**
+	 * @Title: main
+	 * @Description: TODO
+	 * @para: @param args
+	 * @return: void
+	 * @throws: 
+	 * @author liar
+	 * @date  2019/10/06 16:52 
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+
+		
+//		String str = new String("()[]{}");
+		String str = new String("([)]");
+		System.out.println(isValid(str));
+		
+		
+
+ 	
+	}
+	
+	
+    public static boolean isValid(String s) {
+    	
+    	Stack<Character> mysStack = new Stack<Character>();
+    	char tempChar;
+    	
+    	for (int i = 0; i < s.length(); i++) {//空串会被判断为合法字符串
+			tempChar = s.charAt(i);
+			if (tempChar == '(' || tempChar =='[' || tempChar =='{' ) {//碰到正括号压栈
+				mysStack.push(tempChar);
+			}else if (tempChar == ')') {
+				if ((!mysStack.empty())&&(mysStack.pop() == '(')) {
+					continue;
+				}else {
+					return false;
+				}
+			}else if (tempChar == ']') {
+				if ((!mysStack.empty())&&(mysStack.pop() == '[')) {
+					continue;
+				}else {
+					return false;
+				}
+			}else if (tempChar == '}') {
+				if ((!mysStack.empty())&&(mysStack.pop() == '{')) {
+					continue;
+				}else {
+					return false;
+				}
+			}
+						
+		}
+    	if (mysStack.isEmpty()) {
+    		return true;
+		} else {
+			return false;
+		}
+        
+    }
+
+
+}
+
