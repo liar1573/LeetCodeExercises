@@ -75,7 +75,7 @@ public class Test {
 			return false;
 		}
         
-    }
+    }//其实这里直接return mystack.isEmpty()即可，会更简洁一些
 
 
 }
